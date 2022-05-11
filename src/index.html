@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+  <script>
+    const electron = require("electron");
+    const ipcRenderer = electron.ipcRenderer;
+    ipcRenderer.on("cpu", (event, data) => {
+    document.getElementById("cpu").innerHTML = data;
+
+      });
+    ipcRenderer.on("mem", (event, data) => {
+    document.getElementById("mem").innerHTML = data;
+      });
+    ipcRenderer.on("total-mem", (event, data) => {
+    document.getElementById("total-mem").innerHTML = data;
+      });
+  </script>
+
+
+  <link rel="stylesheet" href="index.css">
+  
+
+</head>
+<html>
+    <div class="box">
+    <span class="label"> CPU %  </span>
+    <span id="cpu"> - </span>
+    
+    </div>
+    <div class="box">
+    <span class="label">Свободная память (%) </span>
+    <span id="mem"> - </span>
+
+    </div>
+    <div class="box">
+    <span class="label">Всего оперативки (GB) </span>
+    <span id="total-mem"> - </span>
+    
+  
+    
+
+    
+  </div>   
+</html>
